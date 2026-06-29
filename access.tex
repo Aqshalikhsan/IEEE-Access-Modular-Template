@@ -1,0 +1,117 @@
+%% ============================================================
+%% IEEE ACCESS — MODULAR LaTeX TEMPLATE
+%% ------------------------------------------------------------
+%% Each part of the paper lives in its own file under sections/.
+%% Edit those files; this main file only wires them together.
+%% Build: compile this file (access.tex) TWICE with pdflatex
+%%        (or run `latexmk -pdf access.tex`) so cross-references
+%%        and the page layout settle.
+%% ============================================================
+\documentclass{ieeeaccess}
+
+%% ---- Core packages ----------------------------------------
+\usepackage{cite}                     % citation handling (load before hyperref)
+\usepackage{amsmath,amssymb,amsfonts} % math
+\usepackage{algorithm}                % algorithm float
+\usepackage{algorithmic}              % algorithm body
+\usepackage{graphicx}                 % \includegraphics
+\usepackage{textcomp}
+\usepackage{booktabs}                 % nicer table rules (optional)
+\usepackage{multirow}                 % multirow cells
+\usepackage{array}                    % >{...} column types, p-columns
+\usepackage{pifont}                   % \ding{51}/\ding{55} check/cross marks
+\usepackage{placeins}                 % \FloatBarrier
+\usepackage{bm}                       % bold math
+\usepackage{stfloats}                 % allow figure*/table* at column bottom
+
+%% ---- Whitespace / float tuning ----------------------------
+\raggedbottom                         % collect leftover space at page bottom
+\setlength{\floatsep}{4pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{4pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{4pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{6pt plus 2pt minus 2pt}
+
+% Allow more floats per page and relax placement rules
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+\setcounter{dbltopnumber}{4}
+\renewcommand{\topfraction}{0.90}
+\renewcommand{\bottomfraction}{0.50}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.90}
+\renewcommand{\dblfloatpagefraction}{0.85}
+
+% On dedicated float pages, align floats to the top
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\setlength{\@dblfptop}{0pt}
+\setlength{\@dblfpsep}{10pt}
+\setlength{\@dblfpbot}{0pt plus 1fil}
+\makeatother
+
+%% ---- Bold math version (IEEE Access class requirement) ----
+\makeatletter
+\AtBeginDocument{\DeclareMathVersion{bold}
+\SetSymbolFont{operators}{bold}{T1}{times}{b}{n}
+\SetSymbolFont{NewLetters}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathrm}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathit}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathbf}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathtt}{bold}{OT1}{pcr}{b}{n}
+\SetSymbolFont{symbols}{bold}{OMS}{cmsy}{b}{n}
+\renewcommand\boldmath{\@nomath\boldmath\mathversion{bold}}}
+\makeatother
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%% ---- Tighter author-biography spacing ---------------------
+% IEEEbiography inserts a stretchable "plus 1fil" glue before each
+% entry, which spreads bios down the column. Remove that stretch so
+% bios pack together and leftover space collects at the bottom.
+\usepackage{etoolbox}
+\makeatletter
+\expandafter\patchcmd\csname\string\IEEEbiography\endcsname
+  {\vskip \@IEEEBIOskipN plus 1fil minus 0\baselineskip}
+  {\vskip \@IEEEBIOskipN}{}{}
+\def\@IEEEBIOskipN{2\baselineskip}% gap between biographies (default was 4)
+\makeatother
+
+%% ---- Clickable blue hyperlinks (load hyperref LAST) -------
+% For the camera-ready / print version, switch to
+%   \usepackage[hidelinks]{hyperref}
+% to keep links active but uncolored.
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,    % \ref to figures, tables, equations, sections
+  citecolor=blue,    % \cite to bibliography
+  urlcolor=blue,     % \url and DOI links
+  linktoc=all,
+  breaklinks=true
+}
+
+\graphicspath{{images/}}              % put all figures in images/
+
+\begin{document}
+
+\input{sections/00_title}
+\input{sections/00_abstract}
+
+\maketitle
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_results}
+\input{sections/05_conclusion}
+\input{sections/06_acknowledgment}
+\input{sections/07_references}
+\input{sections/08_biographies}
+
+\end{document}

@@ -1,0 +1,63 @@
+% !TEX root = ../access.tex
+%% ============================================================
+%% SECTION 3 — METHOD
+%% This file showcases the building blocks: equation, figure,
+%% single-column table, and algorithm. Delete what you don't need.
+%% ============================================================
+\section{Proposed Method}
+\label{sec:method}
+
+Describe your method here. Refer to a numbered equation like
+Eq.~\eqref{eq:example}, a figure like Fig.~\ref{fig:example}, a table like
+Table~\ref{tab:example}, and an algorithm like Algorithm~\ref{alg:example}.
+
+%% ---- Equation --------------------------------------------
+\begin{equation}
+y = f(\mathbf{x};\boldsymbol{\theta}) = \sum_{i=1}^{N} \theta_i\,x_i + b
+\label{eq:example}
+\end{equation}
+
+%% ---- Single-column figure --------------------------------
+% Put the image file in images/. Use width=\columnwidth for one column.
+\begin{figure}[!t]
+\centering
+% \includegraphics[width=\columnwidth]{example_figure.png}
+\caption{Single-column figure caption. Replace the commented
+\texttt{\textbackslash includegraphics} line with your image.}
+\label{fig:example}
+\end{figure}
+
+%% ---- Single-column table (stretched to column width) -----
+% \extracolsep{\fill} pushes the table to fill the full column width.
+\begin{table}[!t]
+\caption{Single-Column Table Example}
+\label{tab:example}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lll@{}}
+\hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Description} \\
+\hline
+Learning rate & $1\times10^{-3}$ & Optimizer step size \\
+Batch size    & 64               & Samples per update \\
+Epochs        & 100              & Training iterations \\
+\hline
+\end{tabular*}
+\end{table}
+
+%% ---- Algorithm -------------------------------------------
+\begin{algorithm}
+\caption{Example Procedure}
+\label{alg:example}
+\begin{algorithmic}[1]
+\STATE \textbf{Input:} data $\mathbf{x}$, parameters $\boldsymbol{\theta}$
+\FOR{each step $t = 1 \ldots T$}
+  \STATE Compute output $y \leftarrow f(\mathbf{x};\boldsymbol{\theta})$
+  \STATE Update $\boldsymbol{\theta}$ using the gradient
+\ENDFOR
+\STATE \textbf{Return:} $\boldsymbol{\theta}$
+\end{algorithmic}
+\end{algorithm}
+
+% Tip: \FloatBarrier (from the placins package) forces all pending
+% floats to be placed before this point — useful to keep a section's
+% figures/tables from drifting into the next section.

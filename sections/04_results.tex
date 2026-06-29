@@ -1,0 +1,42 @@
+% !TEX root = ../access.tex
+%% ============================================================
+%% SECTION 4 — RESULTS AND DISCUSSION
+%% Showcases a full-width (two-column-spanning) figure and table.
+%% ============================================================
+\section{Results and Discussion}
+\label{sec:results}
+
+Present and discuss your results. Reference the wide table as
+Table~\ref{tab:wide} and the wide figure as Fig.~\ref{fig:wide}.
+
+%% ---- Full-width table (spans both columns) ---------------
+% Use table* + tabular*{\textwidth} + \extracolsep{\fill} so the
+% table fills the full text width across both columns.
+\begin{table*}[!tb]
+\caption{Full-Width Comparison Table Example}
+\label{tab:wide}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccc@{}}
+\hline
+\textbf{Method} & \textbf{Metric A} & \textbf{Metric B} & \textbf{Metric C}
+& \textbf{Metric D} & \textbf{Metric E} \\
+\hline
+Baseline         & 00.0 & 00.0 & 00.0 & 00.0 & 00.0 \\
+Competitor       & 00.0 & 00.0 & 00.0 & 00.0 & 00.0 \\
+\textbf{Ours}    & \textbf{00.0} & \textbf{00.0} & \textbf{00.0}
+                 & \textbf{00.0} & \textbf{00.0} \\
+\hline
+\end{tabular*}
+\end{table*}
+
+%% ---- Full-width figure (spans both columns) --------------
+\begin{figure*}[!t]
+\centering
+% \includegraphics[width=\textwidth]{wide_figure.png}
+\caption{Full-width figure caption. Use \texttt{figure*} +
+\texttt{width=\textbackslash textwidth} for a figure that spans both columns.}
+\label{fig:wide}
+\end{figure*}
+
+Discuss what the numbers mean, compare against baselines, and note
+limitations.
