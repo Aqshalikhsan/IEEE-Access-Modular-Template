@@ -24,3 +24,9 @@
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local tooling / assistant config (kept out of the repo)
+.claude/
+.claude.json
+CLAUDE.md
+CLAUDE.local.md
